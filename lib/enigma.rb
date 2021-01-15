@@ -41,7 +41,7 @@ class Enigma
     hash = Hash.new
       hash[:encryption] = ceasar
       if hash[:key] = key.to_s.length == 0
-         hash[:key] = key_generate
+         hash[:key] = @key.key_generate
       else
          hash[:key] = key.to_s
       end
@@ -52,15 +52,6 @@ class Enigma
          hash[:date] = date.to_s
       end
     hash
-  end
-
-  def key_generate
-    key = rand(0..99_999)
-    if key.to_s.length < 5
-      "%05d" % key
-    else
-      key
-    end.to_s
   end
 
   def date_generate
@@ -103,7 +94,7 @@ class Enigma
     hash = Hash.new
       hash[:decryption] = ceasar
       if hash[:key] = key.to_s.length == 0
-         hash[:key] = key_generate
+         hash[:key] = @key.key_generate
       else
          hash[:key] = key.to_s
       end
