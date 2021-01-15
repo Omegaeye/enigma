@@ -13,6 +13,8 @@ class Key
     end.to_s
   end
 
+  def key_shift
 
+  end
 
 end
