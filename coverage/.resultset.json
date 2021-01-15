@@ -1,0 +1,29 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/omegaeye/Projects/enigma/lib/key.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          0,
+          null,
+          2,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1610680036
+  }
+}
