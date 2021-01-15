@@ -1,7 +1,9 @@
+require './lib/key'
+
 class Enigma
 
   def initialize
-
+    @key = Key.new
   end
 
   def encrypt(encryption, key = nil, date = nil)
@@ -18,19 +20,6 @@ class Enigma
       off_set_c = code[2]
       off_set_d = code[3]
     end
-
-    if key == nil
-      shift_a = key_generate.chars[0..1].join.to_i
-      shift_b = key_generate.chars[1..2].join.to_i
-      shift_c = key_generate.chars[2..3].join.to_i
-      shift_d = key_generate.chars[3..4].join.to_i
-    else
-      shift_a = key.chars[0..1].join.to_i
-      shift_b = key.chars[1..2].join.to_i
-      shift_c = key.chars[2..3].join.to_i
-      shift_d = key.chars[3..4].join.to_i
-    end
-
     alphabet = ("a".."z").to_a << " "
     ceasar = ""
     position = 0
@@ -41,10 +30,10 @@ class Enigma
       else
         old_index = alphabet.index(chr)
         position += 1; position = 1 if position > 4
-        new_index = ((old_index + shift_a + off_set_a) % alphabet.count) if position == 1
-        new_index = ((old_index + shift_b + off_set_b) % alphabet.count) if position == 2
-        new_index = (old_index + shift_c + off_set_c) % alphabet.count if position == 3
-        new_index = (old_index + shift_d + off_set_d) % alphabet.count if position == 4
+        new_index = ((old_index + @key.key_shift(key = nil) + off_set_a) % alphabet.count) if position == 1
+        new_index = ((old_index + @key.key_shift(key = nil) + off_set_b) % alphabet.count) if position == 2
+        new_index = (old_index + @key.key_shift(key = nil) + off_set_c) % alphabet.count if position == 3
+        new_index = (old_index + @key.key_shift(key = nil) + off_set_d) % alphabet.count if position == 4
         ceasar += alphabet[new_index]
       end
       ceasar
@@ -93,17 +82,6 @@ class Enigma
       off_set_d = code[3]
     end
 
-    if key == nil
-      shift_a = key_generate.chars[0..1].join.to_i
-      shift_b = key_generate.chars[1..2].join.to_i
-      shift_c = key_generate.chars[2..3].join.to_i
-      shift_d = key_generate.chars[3..4].join.to_i
-    else
-      shift_a = key.chars[0..1].join.to_i
-      shift_b = key.chars[1..2].join.to_i
-      shift_c = key.chars[2..3].join.to_i
-      shift_d = key.chars[3..4].join.to_i
-    end
     alphabet = ("a".."z").to_a << " "
     ceasar = ""
     position = 0
@@ -114,10 +92,10 @@ class Enigma
       else
         old_index = alphabet.index(chr)
         position += 1; position = 1 if position > 4
-        new_index = (old_index - shift_a - off_set_a) % alphabet.count if position == 1
-        new_index = (old_index - shift_b - off_set_b) % alphabet.count if position == 2
-        new_index = (old_index - shift_c - off_set_c) % alphabet.count if position == 3
-        new_index = (old_index - shift_d - off_set_d) % alphabet.count if position == 4
+        new_index = (old_index - @key.key_shift(key = nil)- off_set_a) % alphabet.count if position == 1
+        new_index = (old_index - @key.key_shift(key = nil) - off_set_b) % alphabet.count if position == 2
+        new_index = (old_index - @key.key_shift(key = nil) - off_set_c) % alphabet.count if position == 3
+        new_index = (old_index - @key.key_shift(key = nil)- off_set_d) % alphabet.count if position == 4
         ceasar += alphabet[new_index]
       end
       ceasar
