@@ -11,9 +11,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt
-    expect = @enigma.encrypt("hhhhhhhhh", nil, nil)
+    expect = @enigma.encrypt("hello world", "02715", "040895")
     assert_instance_of String, expect[:encryption]
-    p expect
   end
 
   def test_key_generate
@@ -24,5 +23,10 @@ class EnigmaTest < Minitest::Test
   def test_date_generate
     assert_instance_of String, @enigma.date_generate
     assert_equal 6, @enigma.date_generate.length
+  end
+
+  def test_decrypt
+    expect = @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_instance_of String, expect[:decryption]
   end
 end
