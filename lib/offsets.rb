@@ -4,7 +4,7 @@ class Offsets
 
   attr_reader :date
 
-  def initialize(date = Time.now.strftime("%d%m%y")) 
+  def initialize(date = Time.now.strftime("%d%m%y"))
     @date = date
   end
 
@@ -28,7 +28,4 @@ class Offsets
     square[3]
   end
 
-  def date_generate
-    date = Time.now.strftime("%d%m%y")
-  end
 end
