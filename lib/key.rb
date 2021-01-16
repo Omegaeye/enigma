@@ -2,7 +2,8 @@ class Key
 
   attr_reader :digits
 
-  def initialize
+  def initialize(digits = key_generate)
+    @digits = digits
   end
 
   def shift_a(key)
@@ -22,12 +23,6 @@ class Key
   end
 
   def key_generate
-    key = rand(0..99_999)
-    if key.to_s.length < 5
-      "%05d" % key
-    else
-      key
-    end.to_s
+    rand.to_s[2..6]
   end
-
 end

@@ -11,8 +11,8 @@ class OffsetsTest < Minitest::Test
   end
 
   def test_date_generate
-    assert_instance_of String, @date.date_generate
-    assert_equal 6, @date.date_generate.length
+    assert_instance_of String, @date.date
+    assert_equal 6, @date.date.length
   end
 
   def offset_shift
