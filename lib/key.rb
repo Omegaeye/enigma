@@ -1,21 +1,24 @@
 class Key
 
-  def initialize (string = nil)
-    @key ||= key_generate
+  attr_reader :digits
+
+  def initialize
   end
 
-  def key_shift (key = nil)
-    if key == nil
-      shift_a = key_generate.chars[0..1].join.to_i
-      shift_b = key_generate.chars[1..2].join.to_i
-      shift_c = key_generate.chars[2..3].join.to_i
-      shift_d = key_generate.chars[3..4].join.to_i
-    else
-      shift_a = key.chars[0..1].join.to_i
-      shift_b = key.chars[1..2].join.to_i
-      shift_c = key.chars[2..3].join.to_i
-      shift_d = key.chars[3..4].join.to_i
-    end
+  def shift_a(key)
+    key.chars[0..1].join.to_i
+  end
+
+  def shift_b (key)
+    key.chars[1..2].join.to_i
+  end
+
+  def shift_c(key)
+    key.chars[2..3].join.to_i
+  end
+
+  def shift_d(key)
+    key.chars[3..4].join.to_i
   end
 
   def key_generate
