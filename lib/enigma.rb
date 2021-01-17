@@ -18,5 +18,4 @@ include Methods
     decrypt_shift(decryption, key, date)
     decrypt_hash(decryption, key, date)
   end
-  
 end
