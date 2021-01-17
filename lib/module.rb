@@ -1,6 +1,5 @@
 module Methods
 
-
   def punctuation(chr)
       !@alphabet.include?(chr.downcase)
   end
@@ -30,17 +29,8 @@ module Methods
   def encrypt_hash (encryption, key, date)
     hash = Hash.new
       hash[:encryption] = encrypt_shift(encryption, key, date)
-      if hash[:key] = key.to_s.length == 0
-        hash[:key] = key_generate
-      else
-        hash[:key] = key.to_s
-      end
-
-      if hash[:date] = date.to_s.length == 0
-        hash[:date] = date_generate
-      else
-        hash[:date] = date.to_s
-      end
+      hash[:key] = key.to_s
+      hash[:date] = date.to_s
     hash
   end
 
@@ -65,19 +55,8 @@ module Methods
   def decrypt_hash (decryption, key, date)
     hash = Hash.new
       hash[:decryption] = decrypt_shift(decryption, key, date)
-      if hash[:key] = key.to_s.length == 0
-        hash[:key] = key_generate
-      else
-        hash[:key] = key.to_s
-      end
-
-      if hash[:date] = date.to_s.length == 0
-        hash[:date] = date_generate
-      else
-        hash[:date] = date.to_s
-      end
+      hash[:key] = key.to_s
+      hash[:date] = date.to_s
     hash
   end
-
-
 end
