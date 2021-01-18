@@ -4,7 +4,7 @@ class Key
 
   def initialize(digits = key_generate)
     @digits = digits
-  end
+   end
 
   def shift_a(key)
     key.chars[0..1].join.to_i
