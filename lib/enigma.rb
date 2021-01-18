@@ -5,7 +5,6 @@ class Enigma
 include Methods
   def initialize
     @key = Key.new
-    @date = Offsets.new
     @alphabet = ("a".."z").to_a << " "
   end
 
