@@ -8,7 +8,7 @@ argv = ARGV
 
 file = File.open("lib/#{argv[0]}", "r").read.chomp
 
-message = enigma.encrypt(file)
+message = enigma.encrypt(file, argv[2], argv[3])
 
 encrypted = File.open("lib/#{argv[1]}", "w").write(message[:encryption])
 

@@ -27,13 +27,10 @@ class EnigmaTest < Minitest::Test
       date: "040895"
        }
     assert_equal expect, @enigma.encrypt("hello!!!", "02715", "040895")
-
-    expect =  {
-      encryption: "keder ohulw",
-      key: "02715",
-      date: "040895"
-       }
-      assert_instance_of String, @enigma.encrypt("hello!!!")[:encryption]
+    
+    assert_instance_of String, @enigma.encrypt("hello!!!")[:encryption]
+    assert_equal 5, @enigma.encrypt("hello!!!")[:key].length
+    assert_equal 6, @enigma.encrypt("hello!!!")[:date].length
   end
 
   def test_decrypt
